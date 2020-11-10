@@ -1,0 +1,106 @@
+@import '@styles/variables/mixins.scss';
+@import '@styles/variables/colors.scss';
+
+.field {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	min-height: 64px;
+	margin: auto;
+
+	&__label {
+		position: absolute;
+		left: 4%;
+		max-width: 100%;
+		overflow: hidden;
+		transition: transform 0.25s ease, font-size 0.25s ease;
+
+		&_small {
+			transform: translateY(-15px);
+			font-size: 13px;
+		}
+	}
+
+	&__input {
+		width: 100%;
+		min-height: 55px;
+		padding: 25px 10px 15px 17px;
+		border: 1px solid $black;
+		border-radius: 6px;
+		font-family: inherit;
+		background-color: transparent;
+
+		@include hoverSupport {
+			box-shadow: 0 0 3px $black;
+		}
+
+		&:focus {
+			box-shadow: 0 0 3px $black;
+		}
+
+		&:focus + label {
+			transform: translateY(-15px);
+			font-size: 13px;
+		}
+
+		&[type='date'] {
+			font-size: 15px;
+			color: transparent;
+		}
+
+		&[type='date']:focus,
+		&[type='date']:valid {
+			color: $black;
+		}
+
+		&_wrong {
+			border-color: $red;
+		}
+
+		&[type='file'] {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+
+			& + label {
+				position: absolute;
+				top: 46%;
+				left: 0;
+				width: 53%;
+				text-align: center;
+				padding: 8px 10px;
+				border: 1px solid $black;
+				border-radius: 5px;
+				font-size: 16px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				transform: translateY(0);
+				cursor: pointer;
+
+				@include hoverSupport {
+					box-shadow: 0 0 3px $black;
+				}
+			}
+
+			&:focus + label {
+				box-shadow: 0 0 3px $black;
+			}
+		}
+		&_wrong[type='file'] + label {
+			border-color: $red;
+		}
+	}
+
+	&__error {
+		position: absolute;
+		top: 65px;
+		left: 0%;
+		font-size: 13px;
+		color: $red;
+	}
+}
