@@ -93,7 +93,7 @@ const Form = () => {
 				})}
 			</ul>
 			<button className={form__button} type="button" onClick={handleBtnClick}>
-				Ввести
+				Ввести данные
 			</button>
 		</form>
 	);

@@ -6,7 +6,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 80%;
 	min-height: 64px;
 	margin: auto;
 
@@ -69,9 +68,8 @@
 
 			& + label {
 				position: absolute;
-				top: 46%;
+				top: 12%;
 				left: 0;
-				width: 53%;
 				text-align: center;
 				padding: 8px 10px;
 				border: 1px solid $black;
@@ -81,6 +79,10 @@
 				white-space: nowrap;
 				transform: translateY(0);
 				cursor: pointer;
+
+				& + .field__error {
+					top: 45px;
+				}
 
 				@include hoverSupport {
 					box-shadow: 0 0 3px $black;
