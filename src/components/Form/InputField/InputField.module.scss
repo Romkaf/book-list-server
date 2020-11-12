@@ -26,10 +26,10 @@
 		width: 100%;
 		min-height: 55px;
 		padding: 25px 10px 15px 17px;
-		border: 1px solid $black;
 		border-radius: 6px;
 		font-family: inherit;
 		background-color: transparent;
+		background-color: rgba(0, 0, 0, 0.1);
 
 		@include hoverSupport {
 			box-shadow: 0 0 3px $black;
@@ -72,11 +72,11 @@
 				left: 0;
 				text-align: center;
 				padding: 8px 10px;
-				border: 1px solid $black;
 				border-radius: 5px;
 				font-size: 16px;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+				background-color: rgba(0, 0, 0, 0.1);
 				transform: translateY(0);
 				cursor: pointer;
 

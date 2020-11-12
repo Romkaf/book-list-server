@@ -18,9 +18,9 @@ const InputField = ({ name, label, error, type, onUrlOfImageSave }) => {
 	const changeNameOfLabel = (evt) => {
 		const input = evt.target;
 		const label = input.nextElementSibling;
-		const fileName=input.files[0]?.name;
+		const fileName = input.files[0]?.name;
 		if (fileName) {
-			label.innerHTML=fileName;
+			label.innerHTML = fileName;
 		}
 	};
 
@@ -57,10 +57,10 @@ InputField.propTypes = {
 	type: PropTypes.string,
 	label: PropTypes.string,
 	error: PropTypes.string,
-	onUrlOfImageSave:PropTypes.oneOfType([
+	onUrlOfImageSave: PropTypes.oneOfType([
 		PropTypes.func,
-		PropTypes.instanceOf(null)
-	])
+		PropTypes.instanceOf(null),
+	]),
 };
 
 export default InputField;
