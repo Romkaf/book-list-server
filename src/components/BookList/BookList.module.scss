@@ -1,58 +1,81 @@
 @import '@styles/variables/mixins.scss';
 @import '@styles/variables/colors.scss';
 
-.wrapper {
-	margin-top: 20px;
-}
-
-.table {
-	display: flex;
-	flex-direction: column;
+.bookList {
+	position: relative;
+	margin-top: 70px;
 	width: 48%;
-	border-radius: 8px;
-	box-shadow: 0 0 10px 1px $light-black;
 
 	&__heading {
+		position: absolute;
+		top: -50px;
+		left: 1%;
 		padding: 10px 15px;
 		margin-bottom: 10px;
 		font-size: 1.5em;
 		font-weight: 500;
 	}
+}
+
+.table {
+	display: flex;
+	flex-direction: column;
+	border-radius: 8px;
+	box-shadow: 0 0 10px 1px $light-black;
 
 	&__header {
-		border-bottom: 2px solid $light-black;
-		font-weight: 700;
-	}
-
-	&__row {
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
 		padding: 10px 15px;
+		border-bottom: 2px solid $light-black;
+		font-weight: 700;
 
 		& td {
 			width: 50%;
+		}
+	}
 
-			&:first-child {
-				padding-right: 5%;
+	& tbody {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__row {
+		border-bottom: 1px solid $light-black;
+
+		&:last-child {
+			border: none;
+
+			& a {
+				border-bottom-left-radius: 8px;
+				border-bottom-right-radius: 8px;
 			}
+		}
+
+		td {
+			display: flex;
 		}
 	}
 
 	&__link {
-		display: block;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 10px 15px;
 		text-decoration: none;
 		color: inherit;
-		border-bottom: 1px solid $light-black;
 
 		@include hoverSupport {
 			background-color: rgba(0, 0, 0, 0.1);
 		}
 
-		&:last-child {
-			border-bottom: none;
-			border-bottom-left-radius: 8px;
-			border-bottom-right-radius: 8px;
+		span {
+			width: 50%;
+
+			&:first-child {
+				margin-right: 5%;
+			}
 		}
 	}
 }

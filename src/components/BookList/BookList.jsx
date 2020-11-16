@@ -18,40 +18,38 @@ const books = [
 
 const Booklist = () => {
 	const {
-		wrapper,
+		bookList,
+		bookList__heading,
 		table,
 		table__row,
 		table__header,
-		table__heading,
 		table__link,
 	} = styles;
 
 	const renderItem = ({ name, author, id }) => {
 		return (
 			<tr className={table__row} key={id}>
-				<td>{name}</td>
-				<td>{author}</td>
+				<td>
+					<Link to={`/items/${id}`} className={table__link}>
+						<span>{name}</span>
+						<span>{author}</span>
+					</Link>
+				</td>
 			</tr>
 		);
 	};
 
 	return (
-		<div className={wrapper}>
-			<h2 className={table__heading}>Book List</h2>
+		<div className={bookList}>
+			<h2 className={bookList__heading}>Book List</h2>
 			<table className={table}>
-				<thead className={table__header}>
-					<tr className={table__row}>
+				<thead>
+					<tr className={table__header}>
 						<td>Книга</td>
 						<td>Автор</td>
 					</tr>
 				</thead>
-				<tbody>
-					{books.map((it) => (
-						<Link to={`/items/${it.id}`} className={table__link}>
-							{renderItem(it)}
-						</Link>
-					))}
-				</tbody>
+				<tbody>{books.map(renderItem)}</tbody>
 			</table>
 		</div>
 	);

@@ -44,16 +44,6 @@
 			font-size: 13px;
 		}
 
-		&[type='date'] {
-			font-size: 15px;
-			color: transparent;
-		}
-
-		&[type='date']:focus,
-		&[type='date']:valid {
-			color: $black;
-		}
-
 		&_wrong {
 			border-color: $red;
 		}

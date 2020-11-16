@@ -20,16 +20,12 @@
 		margin: 0px 8px;
 		padding: 10px 0;
 		margin-bottom: 5px;
-
-		&:first-child {
-			order: 1;
-		}
 	}
 
 	&__button {
 		position: absolute;
 		padding: 7px 10px;
-		bottom: 37px;
+		bottom: 40px;
 		right: 0;
 		margin-right: 38px;
 		background-color: rgba(0, 0, 0, 0.1);

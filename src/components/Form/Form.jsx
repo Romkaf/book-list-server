@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InputField from './InputField';
 import { validate } from './validate';
-import { NAMES, TYPES, BOOK_FORM } from '@constants';
+import { NAMES, TYPES, LABELS, BOOK_FORM } from '@constants';
 import styles from './Form.module.scss';
 
 const Form = () => {
@@ -9,36 +9,35 @@ const Form = () => {
 	const [urlImage, setUrlImage] = useState('');
 
 	const { NAME, IMAGE, AUTHOR, DATE, PUBLISHER } = NAMES;
-	const { FILE, TEXT, DATE: TYPE_DATE } = TYPES;
-
+	const { FILE, TEXT } = TYPES;
 	const { form, form__elem, form__button } = styles;
 
 	const inputsData = [
-		{
-			name: IMAGE,
-			label: 'Загрузите изображение',
-			error: errorTexts?.image,
-			type: FILE,
-		},
-		{ name: NAME, label: 'Название', error: errorTexts?.name, type: TEXT },
+		{ name: NAME, label: LABELS.NAME, error: errorTexts?.name, type: TEXT },
 		{
 			name: AUTHOR,
-			label: 'Автор',
+			label: LABELS.AUTHOR,
 			error: errorTexts?.author,
 			type: TEXT,
 		},
 		{
 			name: DATE,
-			label: 'Год издания',
+			label: LABELS.DATE,
 			error: errorTexts?.date,
-			type: TYPE_DATE,
+			type: TEXT,
 		},
 
 		{
 			name: PUBLISHER,
-			label: 'Издательство',
+			label: LABELS.PUBLISHER,
 			error: errorTexts?.publisher,
 			type: TEXT,
+		},
+		{
+			name: IMAGE,
+			label: LABELS.IMAGE,
+			error: errorTexts?.image,
+			type: FILE,
 		},
 	];
 

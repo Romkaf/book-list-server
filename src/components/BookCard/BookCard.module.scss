@@ -1,0 +1,149 @@
+@import '@styles/variables/mixins.scss';
+@import '@styles/variables/colors.scss';
+
+.wrapper {
+	margin-top: 70px;
+	width: 48%;
+}
+
+.card {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 3% 4%;
+	border-radius: 8px;
+	box-shadow: 0 0 10px 1px $light-black;
+
+	&__heading {
+		position: absolute;
+		top: -50px;
+		left: 1%;
+		padding: 10px 15px;
+		margin-bottom: 10px;
+		font-size: 1.5em;
+		font-weight: 500;
+	}
+
+	// &__edit {
+	// 	text-align: center;
+	// 	width: 80%;
+	// 	margin: 0 auto;
+	// 	margin-bottom: 15px;
+	// 	font-size: 0.9em;
+
+	// 	h3 {
+	// 		margin-bottom: 10px;
+	// 		font-size: 1.3rem;
+	// 		font-weight: 500;
+	// 	}
+
+	// 	p {
+	// 		text-align: center;
+	// 		font-style: italic;
+	// 	}
+	// }
+
+	&__editForm {
+		display: flex;
+		flex-direction: column;
+		width: 65%;
+
+		h3 {
+			margin-bottom: 10px;
+			font-size: 1.3rem;
+			font-weight: 500;
+		}
+
+		.card__cover {
+			width: 30%;
+			margin-bottom: 15px;
+
+			img {
+				margin-bottom: 10px;
+			}
+		}
+
+		label {
+			margin-bottom: 10px;
+			padding: 5px 0;
+			font-weight: 500;
+
+			input {
+				width: auto;
+				margin-left: 3%;
+				padding: 3px 6px;
+				border: 1px solid rgba(0, 0, 0, 0.6);
+				background-color: rgba(0, 0, 0, 0.1);
+				border-radius: 5px;
+			}
+		}
+	}
+
+	&__cover {
+		width: 150px;
+		margin-right: 5%;
+		margin-bottom: 3%;
+
+		& img {
+			width: 100%;
+		}
+	}
+
+	&__file {
+		margin-top: 10px;
+	}
+
+	&__textinfo {
+		order: 1;
+		width: 100%;
+	}
+
+	&__name {
+		font-size: 1.5em;
+		margin-bottom: 0.2em;
+	}
+
+	&__author {
+		font-size: 0.9em;
+	}
+
+	&__otherDetails {
+		margin-top: 1em;
+		font-size: 0.9em;
+		p {
+			color: $grey;
+			margin-bottom: 0.5em;
+		}
+
+		span {
+			padding: 0 0.6em;
+			color: $black;
+		}
+	}
+
+	&__buttons {
+		margin-left: auto;
+		padding: 0.1em 0.3em;
+	}
+
+	&__btn {
+		box-sizing: content-box;
+		width: 16px;
+		height: 16px;
+		padding: 2px 4px;
+		margin-right: 5px;
+		color: rgba(0, 0, 0, 0.6);
+
+		@include hoverSupport {
+			color: $black;
+		}
+
+		&:focus {
+			color: $black;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

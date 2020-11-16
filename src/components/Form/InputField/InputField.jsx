@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { NAMES } from '@constants';
 import styles from './InputField.module.scss';
 
 const InputField = ({ name, label, error, type, onUrlOfImageSave }) => {
@@ -42,6 +43,7 @@ const InputField = ({ name, label, error, type, onUrlOfImageSave }) => {
 				type={type}
 				name={name}
 				onChange={handleInputChange}
+				maxLength={name === NAMES.DATE ? 4 : null}
 				required
 			/>
 			<label className={classLabel} htmlFor={name}>
