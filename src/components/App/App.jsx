@@ -1,18 +1,24 @@
 import React from 'react';
-import Form from '@components/Form';
-import BookList from '@components/BookList';
-import BookCard from '@components/BookCard';
-import { BrowserRouter as Router } from 'react-router-dom';
+import FormContainer from '@components/Form/FormContainer';
+import BookListContainer from '@components/BookList/BookListContainer';
+import BookCardContainer from '@components/BookCard/BookCardContainer';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styles from './App.module.scss';
 
 const App = () => {
 	return (
 		<Router>
 			<div className={styles.app}>
-				<Form />
+				<FormContainer />
 				<div className={styles.app__wrapper}>
-					<BookList />
-					<BookCard />
+					<BookListContainer />
+					<Route
+						path="/items/:id"
+						render={({ match }) => {
+							const { id } = match.params;
+							return <BookCardContainer itemId={id} />;
+						}}
+					/>
 				</div>
 			</div>
 		</Router>

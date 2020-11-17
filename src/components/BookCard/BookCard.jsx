@@ -4,18 +4,8 @@ import styles from './BookCard.module.scss';
 import SpriteSvg from './sprite.svg';
 import BookEdit from '@components/BookCard/BookEdit';
 
-const BookCard = () => {
+const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 	const [isEdit, setIsEdit] = useState(false);
-
-	const book = {
-		name: 'Умиротворенное одиночество',
-		image:
-			'https://aboutspacejornal.net/wp-content/uploads/2016/01/sun1-1024x9101.jpg',
-		author: 'Роберт Рождественский',
-		publisher: 'Дрофа',
-		date: '2000',
-		id: 1,
-	};
 
 	const buttons = [
 		{ title: 'Редактировать', id: 'edit' },
@@ -49,7 +39,12 @@ const BookCard = () => {
 			<article className={card}>
 				<h2 className={card__heading}>Book Card</h2>
 				{isEdit ? (
-					<BookEdit book={book} onSetIsEdit={setIsEdit} />
+					<BookEdit
+						book={book}
+						onSetIsEdit={setIsEdit}
+						onDeleteBook={onDeleteBook}
+						onEditBook={onEditBook}
+					/>
 				) : (
 					<>
 						<div className={card__cover}>

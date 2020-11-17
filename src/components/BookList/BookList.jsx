@@ -1,22 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './BookList.module.scss';
 import { Link } from 'react-router-dom';
 
-const books = [
-	{
-		name: 'Стихи',
-		author: 'Роберт Рождественский',
-		id: 1,
-	},
-	{
-		name: 'Выразительный JS',
-		author: 'Марк Харвейк',
-		id: 2,
-	},
-];
-
-const Booklist = () => {
+const Booklist = ({ books }) => {
 	const {
 		bookList,
 		bookList__heading,
@@ -55,6 +42,6 @@ const Booklist = () => {
 	);
 };
 
-Booklist.propTypes = {};
+Booklist.propTypes = { books: PropTypes.array };
 
 export default Booklist;

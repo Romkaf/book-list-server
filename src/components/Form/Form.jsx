@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import InputField from './InputField';
 import { validate } from './validate';
 import { NAMES, TYPES, LABELS, BOOK_FORM } from '@constants';
+import PropTypes from 'prop-types';
 import styles from './Form.module.scss';
 
-const Form = () => {
+const Form = ({ onAddBook }) => {
 	const [errorTexts, setErrorTexts] = useState({});
 	const [urlImage, setUrlImage] = useState('');
 
@@ -45,9 +46,9 @@ const Form = () => {
 		const errors = validate(data);
 		setErrorTexts(errors);
 
-		// if (Object.keys(errors).length === 0) {
-		// 	addDataToList(data);
-		// }
+		if (Object.keys(errors).length === 0) {
+			onAddBook(data);
+		}
 	};
 
 	const handleUrlOfImageSave = (file) => {
@@ -97,5 +98,7 @@ const Form = () => {
 		</form>
 	);
 };
+
+Form.propTypes = { onaAddBook: PropTypes.func };
 
 export default Form;

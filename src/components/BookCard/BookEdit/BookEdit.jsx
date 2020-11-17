@@ -6,11 +6,11 @@ import { validate } from '@components/Form/validate.js';
 import styles from './BookEdit.module.scss';
 import classNames from 'classnames';
 
-const BookEdit = ({ book, onSetIsEdit }) => {
+const BookEdit = ({ book, onSetIsEdit, onDeleteBook, onEditBook }) => {
 	const [errorTexts, setErrorTexts] = useState({});
-	// const [urlImage, setUrlImage] = useState('');
+	const [urlImage, setUrlImage] = useState('');
 
-	const { image, name, author, publisher, date } = book;
+	const { image, name, author, publisher, date, id } = book;
 	const { NAME, IMAGE, AUTHOR, DATE, PUBLISHER } = NAMES;
 	const {
 		form,
@@ -25,22 +25,22 @@ const BookEdit = ({ book, onSetIsEdit }) => {
 		const form = document.forms[EDIT_FORM];
 		const newData = {
 			name: form[NAME].value,
-			// image: urlImage,
+			image: urlImage || image,
 			author: form[AUTHOR].value,
 			publisher: form[PUBLISHER].value,
 			date: form[DATE].value,
+			id,
 		};
-		console.log(newData);
+
 		validateData(newData);
 	};
 
 	const validateData = (data) => {
 		const errors = validate(data);
 		setErrorTexts(errors);
-		console.log('errors', errors);
 
 		if (Object.keys(errors).length === 0) {
-			// addDataToList(data);
+			onEditBook(data, id);
 			onSetIsEdit(false);
 		}
 	};
@@ -52,7 +52,7 @@ const BookEdit = ({ book, onSetIsEdit }) => {
 				const reader = new FileReader();
 				reader.onload = () => {
 					evt.target.previousSibling.src = reader.result;
-					// setUrlImage(reader.result);
+					setUrlImage(reader.result);
 				};
 				reader.readAsDataURL(file);
 			}

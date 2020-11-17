@@ -62,7 +62,7 @@ export const validate = (fields) => {
 		errors.date = REQUIRED;
 	}
 
-	if (!fields.image && fields?.image) {
+	if (!fields?.image) {
 		errors.image = DOWNLOAD_IMAGE;
 	}
 
