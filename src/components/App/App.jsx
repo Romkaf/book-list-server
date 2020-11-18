@@ -14,10 +14,9 @@ const App = () => {
 					<BookListContainer />
 					<Route
 						path="/items/:id"
-						render={({ match }) => {
-							const { id } = match.params;
-							return <BookCardContainer itemId={id} />;
-						}}
+						children={({ match }) => (
+							<BookCardContainer itemId={match?.params.id || null} />
+						)}
 					/>
 				</div>
 			</div>

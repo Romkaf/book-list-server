@@ -6,7 +6,7 @@ import { validate } from '@components/Form/validate.js';
 import styles from './BookEdit.module.scss';
 import classNames from 'classnames';
 
-const BookEdit = ({ book, onSetIsEdit, onDeleteBook, onEditBook }) => {
+const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 	const [errorTexts, setErrorTexts] = useState({});
 	const [urlImage, setUrlImage] = useState('');
 

@@ -6,12 +6,7 @@ import BookEdit from '@components/BookCard/BookEdit';
 
 const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 	const [isEdit, setIsEdit] = useState(false);
-
-	const buttons = [
-		{ title: 'Редактировать', id: 'edit' },
-		{ title: 'Удалить', id: 'delete' },
-		{ title: 'Закрыть', id: 'close' },
-	];
+	const { image, name, author, publisher, date, id } = book;
 
 	const {
 		wrapper,
@@ -32,7 +27,15 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 		setIsEdit(true);
 	};
 
-	const { image, name, author, publisher, date } = book;
+	const handleBtnDelete = () => {
+		onDeleteBook(id);
+	};
+
+	const buttons = [
+		{ title: 'Редактировать', id: 'edit', func: handleBtnEdit },
+		{ title: 'Удалить', id: 'delete', func: handleBtnDelete },
+		{ title: 'Закрыть', id: 'close' },
+	];
 
 	return (
 		<div className={wrapper}>
@@ -42,7 +45,6 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 					<BookEdit
 						book={book}
 						onSetIsEdit={setIsEdit}
-						onDeleteBook={onDeleteBook}
 						onEditBook={onEditBook}
 					/>
 				) : (
@@ -65,14 +67,14 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 							</div>
 						</div>
 						<div className={card__buttons}>
-							{buttons.map(({ title, id }) => (
+							{buttons.map((it) => (
 								<button
 									className={card__btn}
-									key={id}
-									title={title}
-									onClick={id === 'edit' ? handleBtnEdit : null}
+									key={it.id}
+									title={it.title}
+									onClick={it?.func}
 								>
-									<SpriteSvg name={id} />
+									<SpriteSvg name={it.id} />
 								</button>
 							))}
 						</div>

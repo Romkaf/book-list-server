@@ -8,7 +8,7 @@ const reducer = (state = [], action) => {
 			return [...state, { ...action.payload, id: id++ }];
 
 		case DELETE_BOOK:
-			return [state.filter((it) => it.id !== action.id)];
+			return state.filter((it) => it.id !== action.id);
 
 		case EDIT_BOOK:
 			return state.map((it) => {
