@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 
 const BookCardContainer = ({ books, deleteBook, editBook, itemId }) => {
 	const book = books.find((it) => it.id === Number(itemId));
+	if (!books.length) {
+		return null;
+	}
 
 	if (!book) {
 		return <span style={{ margin: 'auto' }}>Выбирете книгу!</span>;

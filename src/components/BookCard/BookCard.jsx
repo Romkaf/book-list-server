@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './BookCard.module.scss';
 import SpriteSvg from './sprite.svg';
 import BookEdit from '@components/BookCard/BookEdit';
@@ -32,9 +33,14 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 	};
 
 	const buttons = [
-		{ title: 'Редактировать', id: 'edit', func: handleBtnEdit },
-		{ title: 'Удалить', id: 'delete', func: handleBtnDelete },
-		{ title: 'Закрыть', id: 'close' },
+		{
+			title: 'Редактировать',
+			id: 'edit',
+			func: handleBtnEdit,
+			link: `/items/${id}`,
+		},
+		{ title: 'Удалить', id: 'delete', func: handleBtnDelete, link: `/items` },
+		{ title: 'Закрыть', id: 'close', link: `/items` },
 	];
 
 	return (
@@ -68,14 +74,15 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 						</div>
 						<div className={card__buttons}>
 							{buttons.map((it) => (
-								<button
+								<Link
+									to={it.link}
 									className={card__btn}
 									key={it.id}
 									title={it.title}
 									onClick={it?.func}
 								>
 									<SpriteSvg name={it.id} />
-								</button>
+								</Link>
 							))}
 						</div>
 					</>

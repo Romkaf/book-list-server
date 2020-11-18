@@ -63,6 +63,8 @@ const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 		evt.target.setAttribute('size', evt.target.value.length + 1);
 	};
 
+	const handleBtnCansel = () => onSetIsEdit(false);
+
 	const dataBook = [
 		{ name, label: LABELS.NAME, id: NAME, error: errorTexts?.name },
 		{
@@ -115,7 +117,11 @@ const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 				>
 					<SpriteSvg name="save" />
 				</button>
-				<button className={buttons__btn} title="Отмена">
+				<button
+					className={buttons__btn}
+					title="Отмена"
+					onClick={handleBtnCansel}
+				>
 					<SpriteSvg name="close" />
 				</button>
 			</div>
