@@ -4,22 +4,24 @@ import BookList from './BookList';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const BookListContainer = ({ books }) => {
-	const filterQuery = new URLSearchParams(useLocation().search).get('search');
-	const isInclude = (str) =>
-		str.toUpperCase().includes(filterQuery.toUpperCase());
+const BookListContainer = ({ books, filter }) => {
+	const isInclude = (str) => str.toUpperCase().includes(filter.toUpperCase());
 
-	const visibleBooks = filterQuery
+	const visibleBooks = filter
 		? books.filter((it) => isInclude(it.name) || isInclude(it.author))
 		: books;
 
 	return <BookList books={visibleBooks} />;
 };
 
-BookListContainer.propTypes = { books: PropTypes.array };
+BookListContainer.propTypes = {
+	books: PropTypes.array,
+	filter: PropTypes.string,
+};
 
-const mapStateToProps = (books) => ({
+const mapStateToProps = ({ books, filter }) => ({
 	books,
+	filter,
 });
 
 export default connect(mapStateToProps, {})(BookListContainer);

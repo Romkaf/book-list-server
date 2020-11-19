@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import BookCard from './BookCard';
 import { deleteBook, editBook } from '@models/actions';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const BookCardContainer = ({ books, deleteBook, editBook, itemId }) => {
@@ -26,7 +27,7 @@ BookCardContainer.propTypes = {
 	itemId: PropTypes.string,
 };
 
-const mapStateToProps = (books) => ({ books });
+const mapStateToProps = ({ books }) => ({ books });
 
 const actions = {
 	deleteBook,

@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import SpriteSvg from '@components/BookCard/sprite.svg.jsx';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styles from './Filter.module.scss';
 
-const Filter = (props) => {
-	const [value, setValue] = useState('');
-	const { filter, filter__heading, filter__input, filter__link } = styles;
+const Filter = ({ filterValue, onChangeFilter }) => {
+	const [value, setValue] = useState(filterValue);
+	const { filter, filter__heading, filter__input, filter__btn } = styles;
+	const history = useHistory();
 
 	const handleInputChange = (evt) => {
 		setValue(evt.target.value);
+	};
+
+	const handleFilterChange = (evt) => {
+		if (evt.keyCode === 13 || evt.type === 'click') {
+			onChangeFilter(value);
+			history.push(`/items/?search=${value}`);
+		}
 	};
 
 	return (
@@ -20,14 +28,18 @@ const Filter = (props) => {
 				type="text"
 				value={value}
 				onChange={handleInputChange}
+				onKeyDown={handleFilterChange}
 			/>
-			<Link className={filter__link} to={`/items/?search=${value}`}>
-				<SpriteSvg width="100%" name="search" />
-			</Link>
+			<button className={filter__btn} onClick={handleFilterChange}>
+				<SpriteSvg name="search" />
+			</button>
 		</div>
 	);
 };
 
-Filter.propTypes = {};
+Filter.propTypes = {
+	filterValue: PropTypes.string,
+	onChangeFilter: PropTypes.func,
+};
 
 export default Filter;
