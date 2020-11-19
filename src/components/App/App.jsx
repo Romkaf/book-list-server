@@ -1,5 +1,6 @@
 import React from 'react';
 import FormContainer from '@components/Form/FormContainer';
+import Filter from '@components/Filter';
 import BookListContainer from '@components/BookList/BookListContainer';
 import BookCardContainer from '@components/BookCard/BookCardContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -10,6 +11,7 @@ const App = () => {
 		<Router>
 			<div className={styles.app}>
 				<FormContainer />
+				<Filter />
 				<div className={styles.app__wrapper}>
 					<BookListContainer />
 					<Route

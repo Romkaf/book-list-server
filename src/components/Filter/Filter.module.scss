@@ -1,0 +1,40 @@
+@import '@styles/variables/mixins.scss';
+@import '@styles/variables/colors.scss';
+
+.filter {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 49%;
+	margin: 40px 0 0;
+	margin-right: auto;
+
+	&__heading {
+		margin-left: 1%;
+		padding-left: 15px;
+		font-size: 1.5em;
+		font-weight: 500;
+	}
+
+	&__input {
+		width: 100%;
+		padding: 8px 10px;
+		padding-right: 35px;
+		margin-left: 5%;
+		border-radius: 8px;
+		box-shadow: 0 0 10px 1px $light-black;
+	}
+
+	&__link {
+		position: relative;
+		right: 30px;
+		display: inline-block;
+		width: 20px;
+		height: 18px;
+		color: rgba(0, 0, 0, 0.6);
+
+		@include hoverSupport {
+			color: $black;
+		}
+	}
+}
