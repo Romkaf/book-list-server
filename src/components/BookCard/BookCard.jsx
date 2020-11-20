@@ -92,6 +92,10 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 	);
 };
 
-BookCard.propTypes = {};
+BookCard.propTypes = {
+	books: PropTypes.array,
+	deleteBook: PropTypes.func,
+	editBook: PropTypes.func,
+};
 
 export default BookCard;

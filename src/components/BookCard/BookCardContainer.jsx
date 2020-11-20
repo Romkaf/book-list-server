@@ -1,24 +1,30 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BookCard from './BookCard';
 import { deleteBook, editBook } from '@models/actions';
-import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const BookCardContainer = ({ books, deleteBook, editBook, itemId }) => {
-	const book = books.find((it) => it.id === Number(itemId));
-	if (!books.length) {
-		return null;
+class BookCardContainer extends Component {
+	shouldComponentUpdate(nextProps) {
+		return nextProps.location.state !== 'search';
 	}
 
-	if (!book) {
-		return <span style={{ margin: 'auto' }}>Выбирете книгу!</span>;
-	}
+	render() {
+		const { books, deleteBook, editBook, itemId } = this.props;
+		const book = books.find((it) => it.id === Number(itemId));
+		if (!books.length) {
+			return null;
+		}
 
-	return (
-		<BookCard book={book} onDeleteBook={deleteBook} onEditBook={editBook} />
-	);
-};
+		if (!book) {
+			return <span style={{ margin: 'auto' }}>Выбирете книгу!</span>;
+		}
+
+		return (
+			<BookCard book={book} onDeleteBook={deleteBook} onEditBook={editBook} />
+		);
+	}
+}
 
 BookCardContainer.propTypes = {
 	books: PropTypes.array,

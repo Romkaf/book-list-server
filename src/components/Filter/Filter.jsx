@@ -16,7 +16,7 @@ const Filter = ({ filterValue, onChangeFilter }) => {
 	const handleFilterChange = (evt) => {
 		if (evt.keyCode === 13 || evt.type === 'click') {
 			onChangeFilter(value);
-			history.push(`/items/?search=${value}`);
+			history.push(`/items/?search=${value}`, 'search');
 		}
 	};
 

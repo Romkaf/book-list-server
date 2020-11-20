@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BookList from './BookList';
-import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const BookListContainer = ({ books, filter }) => {

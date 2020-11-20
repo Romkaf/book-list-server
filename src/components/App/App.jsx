@@ -16,8 +16,11 @@ const App = () => {
 					<BookListContainer />
 					<Route
 						path="/items/:id"
-						children={({ match }) => (
-							<BookCardContainer itemId={match?.params.id || null} />
+						children={({ match, location }) => (
+							<BookCardContainer
+								itemId={match?.params.id || null}
+								location={location}
+							/>
 						)}
 					/>
 				</div>
