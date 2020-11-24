@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InputField from './InputField';
 import { validate } from './validate';
 import { NAMES, TYPES, LABELS, BOOK_FORM } from '@constants';
@@ -8,6 +8,11 @@ import styles from './Form.module.scss';
 const Form = ({ onAddBook }) => {
 	const [errorTexts, setErrorTexts] = useState({});
 	const [urlImage, setUrlImage] = useState('');
+	const [reset, setReset] = useState(false);
+
+	useEffect(() => {
+		setReset(false);
+	}, [reset]);
 
 	const { NAME, IMAGE, AUTHOR, DATE, PUBLISHER } = NAMES;
 	const { FILE, TEXT } = TYPES;
@@ -42,22 +47,22 @@ const Form = ({ onAddBook }) => {
 		},
 	];
 
+	const handleFormReset = () => {
+		const form = document.forms[BOOK_FORM];
+		form.reset();
+		const imageLabel = form[IMAGE].nextElementSibling;
+		imageLabel.innerHTML = LABELS.IMAGE;
+		setUrlImage('');
+		setReset(true);
+	};
+
 	const validateData = (data) => {
 		const errors = validate(data);
 		setErrorTexts(errors);
 
 		if (Object.keys(errors).length === 0) {
 			onAddBook(data);
-		}
-	};
-
-	const handleUrlOfImageSave = (file) => {
-		if (file) {
-			const reader = new FileReader();
-			reader.onload = () => {
-				setUrlImage(reader.result);
-			};
-			reader.readAsDataURL(file);
+			handleFormReset();
 		}
 	};
 
@@ -74,6 +79,16 @@ const Form = ({ onAddBook }) => {
 		validateData(newData);
 	};
 
+	const handleUrlOfImageSave = (file) => {
+		if (file) {
+			const reader = new FileReader();
+			reader.onload = () => {
+				setUrlImage(reader.result);
+			};
+			reader.readAsDataURL(file);
+		}
+	};
+
 	return (
 		<form className={form} encType="multipart/form-data" name={BOOK_FORM}>
 			<ul>
@@ -87,6 +102,7 @@ const Form = ({ onAddBook }) => {
 								error={error}
 								type={type}
 								onUrlOfImageSave={type === FILE ? handleUrlOfImageSave : null}
+								reset={reset}
 							/>
 						</li>
 					);
