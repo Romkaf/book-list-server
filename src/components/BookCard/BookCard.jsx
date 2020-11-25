@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './BookCard.module.scss';
-import SpriteSvg from './sprite.svg';
+import SpriteSvg from '@utils/SpriteSvg';
 import BookEdit from '@components/BookCard/BookEdit';
 
 const BookCard = ({ book, onDeleteBook, onEditBook }) => {

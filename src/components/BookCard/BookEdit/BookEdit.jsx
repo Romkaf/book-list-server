@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NAMES, LABELS, EDIT_FORM } from '@constants';
-import SpriteSvg from '@components/BookCard/sprite.svg';
-import { validate } from '@components/Form/validate.js';
+import SpriteSvg from '@utils/SpriteSvg';
+import { validate } from '@utils/validate';
 import styles from './BookEdit.module.scss';
 import classNames from 'classnames';
 

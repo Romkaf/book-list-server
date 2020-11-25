@@ -6,6 +6,7 @@ module.exports = function override(config) {
 		'@models': 'src/models',
 		'@styles': 'src/styles',
 		'@constants': 'src/constants',
+		'@utils': 'src/utils',
 	})(config);
 
 	return config;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import InputField from './InputField';
-import { validate } from './validate';
+import { validate } from '@utils/validate';
 import { NAMES, TYPES, LABELS, BOOK_FORM } from '@constants';
 import PropTypes from 'prop-types';
 import styles from './Form.module.scss';

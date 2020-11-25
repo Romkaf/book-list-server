@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import SpriteSvg from '@components/BookCard/sprite.svg.jsx';
+import SpriteSvg from '@utils/SpriteSvg';
 import { useHistory } from 'react-router-dom';
 import styles from './Filter.module.scss';
 

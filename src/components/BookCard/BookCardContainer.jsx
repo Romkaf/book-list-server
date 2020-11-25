@@ -17,7 +17,7 @@ class BookCardContainer extends Component {
 		}
 
 		if (!book) {
-			return <span style={{ margin: 'auto' }}>Выбирете книгу!</span>;
+			return <span style={{ margin: 'auto' }}>Выберите книгу!</span>;
 		}
 
 		return (
