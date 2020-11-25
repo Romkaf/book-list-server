@@ -36,5 +36,10 @@
 		@include hoverSupport {
 			color: $black;
 		}
+
+		&:focus {
+			outline: dotted 1px $black;
+			outline-offset: 3px;
+		}
 	}
 }
