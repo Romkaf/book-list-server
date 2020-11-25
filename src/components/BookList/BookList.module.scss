@@ -28,7 +28,6 @@
 		justify-content: space-between;
 		width: 100%;
 		padding: 10px 15px;
-		border-bottom: 2px solid $light-black;
 		font-weight: 700;
 
 		& td {
@@ -53,6 +52,10 @@
 			}
 		}
 
+		&:first-child {
+			border-top: 2px solid $light-black;
+		}
+
 		td {
 			display: flex;
 		}
@@ -67,7 +70,7 @@
 		color: inherit;
 
 		@include hoverSupport {
-			background-color: rgba(0, 0, 0, 0.1);
+			background-color: $lighter-black;
 		}
 
 		span {

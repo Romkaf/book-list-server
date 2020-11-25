@@ -53,8 +53,8 @@
 				width: auto;
 				margin-left: 3%;
 				padding: 3px 6px;
-				border: 1px solid rgba(0, 0, 0, 0.6);
-				background-color: rgba(0, 0, 0, 0.1);
+				border: 1px solid $dark-black;
+				background-color: $lighter-black;
 				border-radius: 5px;
 			}
 		}
@@ -67,6 +67,7 @@
 
 		& img {
 			width: 100%;
+			max-height: 250px;
 		}
 	}
 
@@ -114,7 +115,7 @@
 		height: 16px;
 		padding: 2px 4px;
 		margin-right: 5px;
-		color: rgba(0, 0, 0, 0.6);
+		color: $dark-black;
 
 		@include hoverSupport {
 			color: $black;

@@ -31,7 +31,7 @@
 		display: inline-block;
 		width: 20px;
 		height: 18px;
-		color: rgba(0, 0, 0, 0.6);
+		color: $dark-black;
 
 		@include hoverSupport {
 			color: $black;

@@ -28,7 +28,7 @@
 		bottom: 40px;
 		right: 0;
 		margin-right: 38px;
-		background-color: rgba(0, 0, 0, 0.1);
+		background-color: $lighter-black;
 		border-radius: 5px;
 
 		@include hoverSupport {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './BookCard.module.scss';
@@ -7,6 +7,11 @@ import BookEdit from '@components/BookCard/BookEdit';
 
 const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 	const [isEdit, setIsEdit] = useState(false);
+
+	useEffect(() => {
+		setIsEdit(false);
+	}, [book]);
+
 	const { image, name, author, publisher, date, id } = book;
 
 	const {
