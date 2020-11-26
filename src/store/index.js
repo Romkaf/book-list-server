@@ -1,7 +1,8 @@
 import { createStore } from 'redux';
 import reducer from '@models/reducers';
+import { locStorKey } from '@constants';
 
-const initialState = JSON.parse(localStorage.getItem('bookState')) || {
+const initialState = JSON.parse(localStorage.getItem(locStorKey)) || {
 	books: [],
 	filter: '',
 };

@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import App from '@components/App';
 import store from './store';
 import { Provider } from 'react-redux';
+import { locStorKey } from '@constants';
 import '@styles/reset.css';
 import '@styles/global.scss';
 
 store.subscribe(() => {
-	localStorage.setItem('bookState', JSON.stringify(store.getState()));
+	localStorage.setItem(locStorKey, JSON.stringify(store.getState()));
 });
 
 ReactDOM.render(

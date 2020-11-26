@@ -19,6 +19,8 @@ export const TYPES = {
 	FILE: 'file',
 	TEXT: 'text',
 	DATE: 'date',
+	BUTTON: 'button',
+	CLICK: 'click',
 };
 
 export const LABELS = {
@@ -29,5 +31,19 @@ export const LABELS = {
 	DATE: 'Год издания',
 };
 
+export const SVG_NAMES = {
+	EDIT: 'edit',
+	CLOSE: 'close',
+	DELETE: 'delete',
+	SEARCH: 'search',
+	SAVE: 'save',
+};
+
 export const BOOK_FORM = 'BOOK_FORM';
 export const EDIT_FORM = 'EDIT_FORM';
+
+export const keyCode = {
+	ENTER: 13,
+};
+
+export const locStorKey = 'bookState';

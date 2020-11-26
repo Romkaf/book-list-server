@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './BookCard.module.scss';
 import SpriteSvg from '@utils/SpriteSvg';
+import { LABELS, SVG_NAMES } from '@constants';
 import BookEdit from '@components/BookCard/BookEdit';
 
 const BookCard = ({ book, onDeleteBook, onEditBook }) => {
@@ -13,6 +14,8 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 	}, [book]);
 
 	const { image, name, author, publisher, date, id } = book;
+	const { PUBLISHER, DATE } = LABELS;
+	const { EDIT, DELETE, CLOSE } = SVG_NAMES;
 
 	const {
 		wrapper,
@@ -40,12 +43,12 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 	const buttons = [
 		{
 			title: 'Редактировать',
-			id: 'edit',
+			id: EDIT,
 			func: handleBtnEdit,
 			link: `/items/${id}`,
 		},
-		{ title: 'Удалить', id: 'delete', func: handleBtnDelete, link: `/items` },
-		{ title: 'Закрыть', id: 'close', link: `/items` },
+		{ title: 'Удалить', id: DELETE, func: handleBtnDelete, link: `/items` },
+		{ title: 'Закрыть', id: CLOSE, link: `/items` },
 	];
 
 	return (
@@ -68,11 +71,11 @@ const BookCard = ({ book, onDeleteBook, onEditBook }) => {
 							<span className={card__author}>{author}</span>
 							<div className={card__otherDetails}>
 								<p>
-									Издательство
+									{PUBLISHER}
 									<span className={card__publisher}>{publisher}</span>
 								</p>
 								<p>
-									Год издания
+									{DATE}
 									<span className={card__date}>{date}</span>
 								</p>
 							</div>

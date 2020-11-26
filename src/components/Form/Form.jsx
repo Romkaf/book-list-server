@@ -15,7 +15,7 @@ const Form = ({ onAddBook }) => {
 	}, [reset]);
 
 	const { NAME, IMAGE, AUTHOR, DATE, PUBLISHER } = NAMES;
-	const { FILE, TEXT } = TYPES;
+	const { FILE, TEXT, BUTTON } = TYPES;
 	const { form, form__elem, form__button } = styles;
 
 	const inputsData = [
@@ -90,7 +90,7 @@ const Form = ({ onAddBook }) => {
 	};
 
 	return (
-		<form className={form} encType="multipart/form-data" name={BOOK_FORM}>
+		<form className={form} name={BOOK_FORM}>
 			<ul>
 				{inputsData.map((it) => {
 					const { name, label, error, type } = it;
@@ -108,7 +108,7 @@ const Form = ({ onAddBook }) => {
 					);
 				})}
 			</ul>
-			<button className={form__button} type="button" onClick={handleBtnClick}>
+			<button className={form__button} type={BUTTON} onClick={handleBtnClick}>
 				Ввести данные
 			</button>
 		</form>

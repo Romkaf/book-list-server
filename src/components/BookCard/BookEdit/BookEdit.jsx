@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NAMES, LABELS, EDIT_FORM } from '@constants';
+import { NAMES, LABELS, EDIT_FORM, TYPES, SVG_NAMES } from '@constants';
 import SpriteSvg from '@utils/SpriteSvg';
 import { validate } from '@utils/validate';
 import styles from './BookEdit.module.scss';
@@ -12,6 +12,8 @@ const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 
 	const { image, name, author, publisher, date, id } = book;
 	const { NAME, IMAGE, AUTHOR, DATE, PUBLISHER } = NAMES;
+	const { TEXT, FILE, BUTTON } = TYPES;
+	const { SAVE, CLOSE } = SVG_NAMES;
 	const {
 		form,
 		form__imgCover,
@@ -46,7 +48,7 @@ const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 	};
 
 	const handleInputFileChange = (evt) => {
-		if (evt.target.type === 'file') {
+		if (evt.target.type === FILE) {
 			const file = evt.target.files[0];
 			if (evt.target.files[0]) {
 				const reader = new FileReader();
@@ -88,7 +90,7 @@ const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 				<h3>Режим редактирования</h3>
 				<div className={form__imgCover}>
 					<img src={image} alt={name} />
-					<input type="file" id={IMAGE} onChange={handleInputFileChange} />
+					<input type={FILE} id={IMAGE} onChange={handleInputFileChange} />
 				</div>
 				{dataBook.map(({ name, label, id, error }) => {
 					const classInputWrong = classNames({ [wrong]: error });
@@ -97,7 +99,7 @@ const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 							{label}
 							<input
 								className={classInputWrong}
-								type="text"
+								type={TEXT}
 								id={id}
 								defaultValue={name}
 								size={name.length + 1}
@@ -112,17 +114,19 @@ const BookEdit = ({ book, onSetIsEdit, onEditBook }) => {
 			<div className={buttons}>
 				<button
 					className={buttons__btn}
+					type={BUTTON}
 					title="Сохранить изменения"
 					onClick={handleBtnSave}
 				>
-					<SpriteSvg name="save" />
+					<SpriteSvg name={SAVE} />
 				</button>
 				<button
 					className={buttons__btn}
+					type={BUTTON}
 					title="Отмена"
 					onClick={handleBtnCansel}
 				>
-					<SpriteSvg name="close" />
+					<SpriteSvg name={CLOSE} />
 				</button>
 			</div>
 		</>

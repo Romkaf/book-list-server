@@ -4,7 +4,8 @@
 
 .form {
 	position: relative;
-	padding: 25px 30px 0;
+	padding: 20px;
+	padding-bottom: 0;
 	border-radius: 8px;
 	background-color: $white;
 	box-shadow: 0 0 10px 1px $light-black;
@@ -19,15 +20,14 @@
 		width: 45%;
 		margin: 0px 8px;
 		padding: 10px 0;
-		margin-bottom: 5px;
 	}
 
 	&__button {
 		position: absolute;
 		padding: 7px 10px;
-		bottom: 40px;
+		bottom: 34px;
 		right: 0;
-		margin-right: 38px;
+		margin-right: 28px;
 		background-color: $lighter-black;
 		border-radius: 5px;
 
