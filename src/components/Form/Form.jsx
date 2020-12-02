@@ -68,6 +68,7 @@ const Form = ({ onAddBook }) => {
 
 	const handleBtnClick = () => {
 		const form = document.forms[BOOK_FORM];
+
 		const newData = {
 			name: form[NAME].value,
 			image: urlImage,

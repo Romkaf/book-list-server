@@ -1,5 +1,12 @@
 import { ADD_BOOK, DELETE_BOOK, EDIT_BOOK, CHANGE_FILTER } from './actionTypes';
 
+export const fetchBooks = (data) => {
+	return {
+		type: 'FETCH_BOOKS',
+		payload: data,
+	};
+};
+
 export const addBook = (data) => {
 	return {
 		type: ADD_BOOK,
@@ -26,4 +33,23 @@ export const changeFilter = (value) => {
 		type: CHANGE_FILTER,
 		payload: value,
 	};
+};
+
+export const uploadBook = (book) => (dispatch) => {
+	let url = 'http://localhost:4000/items';
+	console.log('work');
+	fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json;charset=utf-8',
+		},
+		body: JSON.stringify(book),
+	}).then(() => dispatch(addBook(book)));
+};
+
+export const loadBooks = () => (dispatch) => {
+	let url = 'http://localhost:4000/items';
+	fetch(url)
+		.then((resp) => resp.json())
+		.then((result) => dispatch(fetchBooks(result)));
 };

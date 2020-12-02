@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { loadBooks } from '@models/actions';
 import BookList from './BookList';
 import PropTypes from 'prop-types';
 
-const BookListContainer = ({ books, filter }) => {
+const BookListContainer = ({ books, filter, loadBooks }) => {
+	useEffect(() => loadBooks(), []);
+
 	const isInclude = (str) => str.toUpperCase().includes(filter.toUpperCase());
 
 	const visibleBooks = filter
@@ -23,4 +26,4 @@ const mapStateToProps = ({ books, filter }) => ({
 	filter,
 });
 
-export default connect(mapStateToProps, {})(BookListContainer);
+export default connect(mapStateToProps, { loadBooks })(BookListContainer);
