@@ -1,8 +1,21 @@
-import { ADD_BOOK, DELETE_BOOK, EDIT_BOOK, CHANGE_FILTER } from './actionTypes';
+import {
+	ADD_BOOK,
+	DELETE_BOOK,
+	EDIT_BOOK,
+	CHANGE_FILTER,
+	LOAD_BOOKS,
+	FETCH_BOOKS,
+} from './actionTypes';
 
 export const fetchBooks = (data) => {
 	return {
-		type: 'FETCH_BOOKS',
+		type: FETCH_BOOKS,
+	};
+};
+
+export const loadBooks = (data) => {
+	return {
+		type: LOAD_BOOKS,
 		payload: data,
 	};
 };
@@ -47,9 +60,9 @@ export const uploadBook = (book) => (dispatch) => {
 	}).then(() => dispatch(addBook(book)));
 };
 
-export const loadBooks = () => (dispatch) => {
-	let url = 'http://localhost:4000/items';
-	fetch(url)
-		.then((resp) => resp.json())
-		.then((result) => dispatch(fetchBooks(result)));
-};
+// export const loadBooks = () => (dispatch) => {
+// 	let url = 'http://localhost:4000/items';
+// 	fetch(url)
+// 		.then((resp) => resp.json())
+// 		.then((result) => dispatch(fetchBooks(result)));
+// };

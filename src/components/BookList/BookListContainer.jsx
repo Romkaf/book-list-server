@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadBooks } from '@models/actions';
+import { fetchBooks } from '@models/actions';
 import BookList from './BookList';
 import PropTypes from 'prop-types';
 
-const BookListContainer = ({ books, filter, loadBooks }) => {
-	useEffect(() => loadBooks(), []);
+const BookListContainer = ({ books, filter, fetchBooks }) => {
+	useEffect(() => fetchBooks(), []);
 
 	const isInclude = (str) => str.toUpperCase().includes(filter.toUpperCase());
 
@@ -26,4 +26,4 @@ const mapStateToProps = ({ books, filter }) => ({
 	filter,
 });
 
-export default connect(mapStateToProps, { loadBooks })(BookListContainer);
+export default connect(mapStateToProps, { fetchBooks })(BookListContainer);

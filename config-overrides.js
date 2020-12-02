@@ -7,6 +7,7 @@ module.exports = function override(config) {
 		'@styles': 'src/styles',
 		'@constants': 'src/constants',
 		'@utils': 'src/utils',
+		'@sagas': 'src/sagas',
 	})(config);
 
 	return config;

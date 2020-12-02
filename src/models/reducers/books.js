@@ -4,7 +4,7 @@ export default (state = [], action) => {
 	let id = state.length === 0 ? 1 : state[state.length - 1].id + 1;
 
 	switch (action.type) {
-		case 'FETCH_BOOKS':
+		case 'LOAD_BOOKS':
 			return action.payload;
 
 		case ADD_BOOK:
