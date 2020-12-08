@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BookCard from './BookCard';
-import { deleteBook, editBook } from '@models/actions';
+import { requestDeleteBook, requestEditBook } from '@models/actions';
 import PropTypes from 'prop-types';
 
 class BookCardContainer extends Component {
@@ -10,7 +10,7 @@ class BookCardContainer extends Component {
 	}
 
 	render() {
-		const { books, deleteBook, editBook, itemId } = this.props;
+		const { books, requestDeleteBook, requestEditBook, itemId } = this.props;
 		const book = books.find((it) => it.id === Number(itemId));
 		if (!books.length) {
 			return null;
@@ -21,23 +21,27 @@ class BookCardContainer extends Component {
 		}
 
 		return (
-			<BookCard book={book} onDeleteBook={deleteBook} onEditBook={editBook} />
+			<BookCard
+				book={book}
+				onDeleteBook={requestDeleteBook}
+				onEditBook={requestEditBook}
+			/>
 		);
 	}
 }
 
 BookCardContainer.propTypes = {
 	books: PropTypes.array,
-	deleteBook: PropTypes.func,
-	editBook: PropTypes.func,
+	requestDeleteBook: PropTypes.func,
+	requestEditBook: PropTypes.func,
 	itemId: PropTypes.string,
 };
 
 const mapStateToProps = ({ books }) => ({ books });
 
 const actions = {
-	deleteBook,
-	editBook,
+	requestDeleteBook,
+	requestEditBook,
 };
 
 export default connect(mapStateToProps, actions)(BookCardContainer);

@@ -1,0 +1,27 @@
+@import '@styles/variables/colors.scss';
+
+.error-indicator {
+	padding: 15px;
+	margin-bottom: 40px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: $brown;
+	background-color: $light-beige;
+	border-color: $beige;
+	animation: show 4s linear forwards;
+}
+
+@keyframes show {
+	0% {
+		transform: translateY(-100%);
+	}
+	20% {
+		transform: translateY(40%);
+	}
+	80% {
+		transform: translateY(40%);
+	}
+	100% {
+		transform: translateY(-100%);
+	}
+}

@@ -8,6 +8,7 @@ module.exports = function override(config) {
 		'@constants': 'src/constants',
 		'@utils': 'src/utils',
 		'@sagas': 'src/sagas',
+		'@api': 'src/api',
 	})(config);
 
 	return config;
