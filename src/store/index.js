@@ -1,9 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-// import thunk from 'redux-thunk';
 import reducer from '@models/reducers';
 import { locStorKey } from '@constants';
-import { watchFetchBooks } from '@sagas';
+import { watchFetchBooks, watchUploadBook } from '@sagas';
 
 const initialState = JSON.parse(localStorage.getItem(locStorKey)) || {
 	books: [],
@@ -19,5 +18,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchFetchBooks);
+sagaMiddleware.run(watchUploadBook);
 
 export default store;

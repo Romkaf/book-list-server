@@ -5,7 +5,7 @@ import { NAMES, TYPES, LABELS, BOOK_FORM } from '@constants';
 import PropTypes from 'prop-types';
 import styles from './Form.module.scss';
 
-const Form = ({ onAddBook }) => {
+const Form = ({ onUploadBook }) => {
 	const [errorTexts, setErrorTexts] = useState({});
 	const [urlImage, setUrlImage] = useState('');
 	const [reset, setReset] = useState(false);
@@ -61,7 +61,7 @@ const Form = ({ onAddBook }) => {
 		setErrorTexts(errors);
 
 		if (Object.keys(errors).length === 0) {
-			onAddBook(data);
+			onUploadBook(data);
 			handleFormReset();
 		}
 	};
@@ -116,6 +116,6 @@ const Form = ({ onAddBook }) => {
 	);
 };
 
-Form.propTypes = { onaAddBook: PropTypes.func };
+Form.propTypes = { onUploadBook: PropTypes.func };
 
 export default Form;

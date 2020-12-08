@@ -5,7 +5,7 @@ import BookList from './BookList';
 import PropTypes from 'prop-types';
 
 const BookListContainer = ({ books, filter, fetchBooks }) => {
-	useEffect(() => fetchBooks(), []);
+	useEffect(() => fetchBooks(), [fetchBooks]);
 
 	const isInclude = (str) => str.toUpperCase().includes(filter.toUpperCase());
 
@@ -19,6 +19,7 @@ const BookListContainer = ({ books, filter, fetchBooks }) => {
 BookListContainer.propTypes = {
 	books: PropTypes.array,
 	filter: PropTypes.string,
+	fetchBooks: PropTypes.func,
 };
 
 const mapStateToProps = ({ books, filter }) => ({

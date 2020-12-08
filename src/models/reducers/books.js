@@ -1,10 +1,15 @@
-import { ADD_BOOK, DELETE_BOOK, EDIT_BOOK } from '@models/actions/actionTypes';
+import {
+	ADD_BOOK,
+	DELETE_BOOK,
+	EDIT_BOOK,
+	FETCH_BOOKS_SUCCESS,
+} from '@models/actions/actionTypes';
 
 export default (state = [], action) => {
 	let id = state.length === 0 ? 1 : state[state.length - 1].id + 1;
 
 	switch (action.type) {
-		case 'LOAD_BOOKS':
+		case FETCH_BOOKS_SUCCESS:
 			return action.payload;
 
 		case ADD_BOOK:

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const Booklist = ({ books }) => {
 	const {
 		bookList,
+		bookList__empty,
 		bookList__heading,
 		table,
 		table__row,
@@ -29,15 +30,19 @@ const Booklist = ({ books }) => {
 	return (
 		<div className={bookList}>
 			<h2 className={bookList__heading}>Book List</h2>
-			<table className={table}>
-				<thead>
-					<tr className={table__header}>
-						<td>Книга</td>
-						<td>Автор</td>
-					</tr>
-				</thead>
-				<tbody>{books.map(renderItem)}</tbody>
-			</table>
+			{!books.length ? (
+				<span className={bookList__empty}>Список пуст!</span>
+			) : (
+				<table className={table}>
+					<thead>
+						<tr className={table__header}>
+							<td>Книга</td>
+							<td>Автор</td>
+						</tr>
+					</thead>
+					<tbody>{books.map(renderItem)}</tbody>
+				</table>
+			)}
 		</div>
 	);
 };

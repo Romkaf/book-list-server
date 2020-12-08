@@ -4,10 +4,10 @@ import Form from './Form';
 import { addBook, uploadBook } from '@models/actions';
 import PropTypes from 'prop-types';
 
-const FormContainer = ({ addBook, uploadBook }) => {
-	return <Form onAddBook={uploadBook} />;
+const FormContainer = ({ uploadBook }) => {
+	return <Form onUploadBook={uploadBook} />;
 };
 
-FormContainer.propTypes = { addBook: PropTypes.func };
+FormContainer.propTypes = { uploadBook: PropTypes.func };
 
-export default connect(null, { addBook, uploadBook })(FormContainer);
+export default connect(null, { uploadBook })(FormContainer);

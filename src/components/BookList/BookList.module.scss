@@ -6,6 +6,12 @@
 	margin-top: 70px;
 	width: 48%;
 
+	&__empty {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+	}
+
 	&__heading {
 		position: absolute;
 		top: -50px;

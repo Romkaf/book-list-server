@@ -3,8 +3,9 @@ import {
 	DELETE_BOOK,
 	EDIT_BOOK,
 	CHANGE_FILTER,
-	LOAD_BOOKS,
+	FETCH_BOOKS_SUCCESS,
 	FETCH_BOOKS,
+	UPLOAD_BOOK,
 } from './actionTypes';
 
 export const fetchBooks = (data) => {
@@ -13,9 +14,9 @@ export const fetchBooks = (data) => {
 	};
 };
 
-export const loadBooks = (data) => {
+export const fetchBooksSuccess = (data) => {
 	return {
-		type: LOAD_BOOKS,
+		type: FETCH_BOOKS_SUCCESS,
 		payload: data,
 	};
 };
@@ -48,21 +49,7 @@ export const changeFilter = (value) => {
 	};
 };
 
-export const uploadBook = (book) => (dispatch) => {
-	let url = 'http://localhost:4000/items';
-	console.log('work');
-	fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json;charset=utf-8',
-		},
-		body: JSON.stringify(book),
-	}).then(() => dispatch(addBook(book)));
-};
-
-// export const loadBooks = () => (dispatch) => {
-// 	let url = 'http://localhost:4000/items';
-// 	fetch(url)
-// 		.then((resp) => resp.json())
-// 		.then((result) => dispatch(fetchBooks(result)));
-// };
+export const uploadBook = (book) => ({
+	type: UPLOAD_BOOK,
+	payload: book,
+});
