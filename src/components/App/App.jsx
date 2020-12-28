@@ -1,8 +1,8 @@
 import React from 'react';
-import FormContainer from '@components/Form/FormContainer';
-import FilterContainer from '@components/Filter/FilterContainer';
-import BookListContainer from '@components/BookList/BookListContainer';
-import BookCardContainer from '@components/BookCard/BookCardContainer';
+import FormContainer from '@components/Form';
+import FilterContainer from '@components/Filter';
+import BookListContainer from '@components/BookList';
+import BookCardContainer from '@components/BookCard';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styles from './App.module.scss';
 import ErrorIndicator from '@components/ErrorIndicator';

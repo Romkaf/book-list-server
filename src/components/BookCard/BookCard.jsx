@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './BookCard.module.scss';
@@ -106,4 +106,4 @@ BookCard.propTypes = {
 	editBook: PropTypes.func,
 };
 
-export default BookCard;
+export default memo(BookCard);

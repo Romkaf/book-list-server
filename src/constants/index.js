@@ -46,4 +46,5 @@ export const keyCode = {
 	ENTER: 13,
 };
 
-export const locStorKey = 'bookState';
+export const locStorKey = 'bookListState';
+export const baseURL = 'http://localhost:3200/items';

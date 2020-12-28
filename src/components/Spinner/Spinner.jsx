@@ -1,8 +1,6 @@
 import React from 'react';
-import './Spinner.scss';
+import styles from './Spinner.module.scss';
 
-const Spinner = () => {
-	return <div className="lds-dual-ring"></div>;
-};
+const Spinner = () => <div className={styles.spinner}></div>;
 
 export default Spinner;
